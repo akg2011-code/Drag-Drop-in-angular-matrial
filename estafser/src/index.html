@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title>Estafser</title>
     <base href="/">
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Expires" CONTENT="-1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
@@ -15,6 +17,16 @@
 <body class="mat-typography">
     <app-root></app-root>
 
+    <script>
+        //to avoid lazy loading i start app first time
+        function reloadIt() {
+            if (window.location.href.substr(-2) !== "?r") {
+                window.location = window.location.href + "?r";
+            }
+        }
+
+        setTimeout('reloadIt()', 10)();
+    </script>
 </body>
 
 </html>

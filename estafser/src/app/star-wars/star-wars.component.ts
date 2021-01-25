@@ -189,17 +189,5 @@ function __isInsideDropListClientRect(dropList: CdkDropList, x: number, y: numbe
   const { top, bottom, left, right } = dropList.element.nativeElement.getBoundingClientRect();
   return y >= top && y <= bottom && x >= left && x <= right;
 }
-//to avoid lazy loading i start app first time
-(function()
-{
-  if( window.localStorage )
-  {
-    if( !localStorage.getItem('firstLoad') )
-    {
-      localStorage['firstLoad'] = true;
-      window.location.reload();
-    }  
-    else
-      localStorage.removeItem('firstLoad');
-  }
-})();
+
+
