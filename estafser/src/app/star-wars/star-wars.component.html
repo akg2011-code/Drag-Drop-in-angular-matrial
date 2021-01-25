@@ -1,0 +1,21 @@
+<!-- input search -->
+<form class="my-form">
+    <mat-form-field class="my-full-width">
+        <mat-label>Searching</mat-label>
+        <input matInput placeholder="Ex. Luke Skywalker" value="" name="search" [(ngModel)]="name" (input)="doSearch()">
+    </mat-form-field>
+</form>
+
+<!-- display data from api -->
+<div class="my-container" cdkDropListGroup>
+    <div cdkDropList [cdkDropListEnterPredicate]="dropListEnterPredicate" (cdkDropListDropped)="dropListDropped($event)"></div>
+    <div cdkDropList *ngFor="let item of allPeople;let i=index" [cdkDropListEnterPredicate]="dropListEnterPredicate" (cdkDropListDropped)="dropListDropped($event)">
+        <div cdkDrag class="my-box" (cdkDragMoved)="dragMoved($event)">
+            <h1><i class="swg swg-darthvader"></i>{{ item.name }}</h1>
+            <h4><i class="swg swg-tie-3"></i>{{ item.height }}cm</h4>
+            <h3><i class="swg swg-falcon-3 "></i>{{ PP[i].name}} </h3>
+            <h5><i class="swg swg-newrep "></i>{{ item.url }}</h5>
+            <h6><i class="swg swg-galemp"></i>{{ item.homeworld }}</h6>
+        </div>
+    </div>
+</div>
