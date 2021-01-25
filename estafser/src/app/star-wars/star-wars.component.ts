@@ -30,6 +30,7 @@ export class StarWarsComponent {
     private service: ThePeopleService,
     private viewportRuler: ViewportRuler
   ) {
+    this.ngOnInit();
     this.target = null;
     this.source = null;
   }
